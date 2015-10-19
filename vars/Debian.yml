@@ -1,0 +1,4 @@
+---
+apt_package: php5-mysql
+php_mysql_ini_filename: mysql
+php_mysqli_ini_filename: mysqli

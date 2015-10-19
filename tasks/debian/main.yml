@@ -1,0 +1,8 @@
+---
+- name: debian | install mysql module for php
+  apt: name={{apt_package}} state=installed
+
+- name: debian | enable mysql module for php
+  command: php5enmod {{php_mysql_ini_filename}}
+  args:
+    creates: "{{ansible_local.phpinfo_core.php_config_file_scan_dir}}/{{php_mysql_extension_priority}}-{{php_mysql_ini_filename}}.ini"

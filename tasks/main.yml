@@ -1,0 +1,15 @@
+---
+- name: include os-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: configure mysql extension
+  template: src=mysql.ini.j2 dest={{php_extension_ini_dir}}/{{php_mysql_ini_filename}}.ini
+
+- name: configure mysqli extension
+  template: src=mysqli.ini.j2 dest={{php_extension_ini_dir}}/{{php_mysqli_ini_filename}}.ini
+
+- include: debian/main.yml
+  when: ansible_os_family == 'Debian'
+
+- include: redhat/main.yml
+  when: ansible_os_family == 'RedHat'

@@ -1,0 +1,4 @@
+---
+yum_package: php-mysql
+php_mysql_ini_filename: mysql
+php_mysqli_ini_filename: mysqli
